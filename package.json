@@ -22,10 +22,10 @@
   },
   "homepage": "https://github.com/umeshgmrl/Unofficial-Vocabulary.com-API#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "node-fetch": "^2.3.0",
-    "node-html-parser": "^1.1.14",
-    "cors": "^2.8.5"
+    "node-html-parser": "^1.1.14"
   },
   "devDependencies": {
     "prettier": "^1.16.4"
