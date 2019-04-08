@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/umeshgmrl/Unofficial-Vocabulary.com-API/issues"
   },
-  "homepage": "https://github.com/umeshgmrl/Unofficial-Vocabulary.com-API#readme"
+  "homepage": "https://github.com/umeshgmrl/Unofficial-Vocabulary.com-API#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "node-fetch": "^2.3.0",
+    "node-html-parser": "^1.1.14"
+  }
 }
