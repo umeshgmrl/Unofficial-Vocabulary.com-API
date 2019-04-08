@@ -1,9 +1,9 @@
 const fetch = require("node-fetch");
 const { parse } = require("node-html-parser");
 
-exports.fetchWord = (req, res) => {
+exports.fetchSingleWord = (req, res) => {
   fetch(
-    `https://www.vocabulary.com/dictionary/definition.ajax?search=assess&lang=en`
+    `https://www.vocabulary.com/dictionary/definition.ajax?search=${req.params.word}&lang=en`
   )
     .then(res => res.text())
     .then(data => {
@@ -17,7 +17,7 @@ exports.fetchWord = (req, res) => {
 };
 
 exports.fetchWords = (req, res) => {
-  fetch(`https://www.vocabulary.com/dictionary/autocomplete?search=w`)
+  fetch(`https://www.vocabulary.com/dictionary/autocomplete?search=${req.params.text}`)
     .then(res => res.text())
     .then(data => {
       const root = parse(data);

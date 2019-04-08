@@ -1,0 +1,1 @@
+# Unofficial Vocabulary.com API
