@@ -8,7 +8,12 @@ exports.fetchSingleWord = (req, res) => {
     .then(res => res.text())
     .then(data => {
       const root = parse(data);
-      const rawText = root.querySelector("p.short").rawText;
+      let rawText;
+      try{
+        rawText = root.querySelector("p.short").rawText;
+      } catch(e) {        
+        rawText = root.querySelector("h3.definition").rawText;
+      }
       res.json({
         success: true,
         data: rawText
