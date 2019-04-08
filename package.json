@@ -25,5 +25,8 @@
     "express": "^4.16.4",
     "node-fetch": "^2.3.0",
     "node-html-parser": "^1.1.14"
+  },
+  "devDependencies": {
+    "prettier": "^1.16.4"
   }
 }
