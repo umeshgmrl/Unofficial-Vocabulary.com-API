@@ -14,4 +14,4 @@ This will return full explamnation of the word
 http://35.200.150.228:7778/word/world
 ```
 
-The API is currently hosted on Google Compute Engine. You can host it anywhere.
+The API is currently hosted on Google Compute Engine. You can host it anywhere or deploy it as a microservice.
