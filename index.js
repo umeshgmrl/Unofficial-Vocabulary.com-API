@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 7778;
+const port = process.env.PORT || 80;
 const cors = require('cors');
 const { fetchSingleWord, fetchWords } = require("./fetch");
 
