@@ -1,17 +1,17 @@
 # Unofficial Vocabulary.com API
 
-## search words with text
-This will return list of matched words with their short description
+## Update
+It is now live here https://vocabulary.now.sh
 
-```
-http://35.200.150.228:7778/words/wo
-```
+note: initial load may take some time as now.sh starts it up from sleep
+
 
 ## get explanation of a single word
-This will return full explamnation of the word
 
-```
-http://35.200.150.228:7778/word/world
-```
+https://vocabulary.now.sh/word/google
 
-The API is currently hosted on Google Compute Engine. You can host it anywhere or deploy it as a microservice.
+## get list of matching words
+
+https://vocabulary.now.sh/words/goo
+
+
