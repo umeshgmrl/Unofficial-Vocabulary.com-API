@@ -5,6 +5,12 @@ const cors = require('cors');
 const { fetchSingleWord, fetchWords } = require("./fetch");
 
 app.use(cors());
+app.get("/", (req, res) => {
+  res.json({
+    name: "unofficial vocabulary.com api",
+    status: "working"
+  })
+});
 app.get("/word/:word", fetchSingleWord);
 app.get("/words/:text", fetchWords);
 
