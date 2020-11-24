@@ -7,7 +7,7 @@ const { fetchSingleWord, fetchWords } = require("./fetch");
 app.use(cors());
 app.get("/", (req, res) => {
   res.json({
-    name: "unofficial vocabulary.com api",
+    name: "unofficial vocabulary.com api - test",
     status: "working"
   })
 });
