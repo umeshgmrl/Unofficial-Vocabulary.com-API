@@ -1,7 +1,7 @@
 # Unofficial Vocabulary.com API
 
 ## Update
-It is now live here https://vocabulary.now.sh
+It is now live here https://vocabulary.vercel.app
 
 Used this as backend to https://dictionary.surge.sh
 
