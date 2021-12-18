@@ -5,7 +5,7 @@
 	"builds": [
 		{
 			"src": "index.js",
-			"use": "@now/node-server"
+			"use": "@vercel/node"
 		}
 	],
 	"routes": [
