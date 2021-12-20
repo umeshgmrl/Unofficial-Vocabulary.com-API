@@ -1,5 +1,6 @@
 const fetch = require("node-fetch");
 const { parse } = require("node-html-parser");
+const maxWordLimit = 19;
 
 exports.fetchSingleWord = (req, res) => {
   fetch(
@@ -22,31 +23,44 @@ exports.fetchSingleWord = (req, res) => {
     });
 };
 
-exports.fetchWords = (req, res) => {
-  fetch(
-    `https://www.vocabulary.com/dictionary/autocomplete?search=${req.params.text
-    }`
-  )
+const fetchWordsBase = (text, startOffset = 0) => {
+  return fetch(`https://www.vocabulary.com/dictionary/autocomplete?search=${text}&startOffset=${startOffset}`)
     .then(res => res.text())
     .then(data => {
       const root = parse(data);
-      const rawText = root.rawText;
-      const words = rawText
-        .split("\r\n")
-        .filter(text => text.length > 2)
-        .map(wordData => {
-          let wordArray = wordData.split(" ");
-          return {
-            name: wordArray.shift(),
-            description: wordArray.join(" ")
-          };
-        });
-      res.json({
-        success: true,
-        data: words
+      const result = Array.from(root.querySelectorAll("li")).map(el => {
+        const word = el.querySelector(".word").rawText;
+        const description = el.querySelector(".definition").rawText;
+        return { word, description }
       });
+      return result;
     });
 };
+
+exports.fetchWords = async (req, res) => {
+  const data = await fetchWordsBase(req.params.text);
+  res.json({
+    success: true,
+    data
+  });
+};
+
+exports.fetchWordsAll = async (req, res) => {
+  const { text } = req.params;
+  let currentOffset = 0;
+  let allWords = [];
+  let words = [];
+  do {
+    words = await fetchWordsBase(text, currentOffset);
+    allWords = [...allWords, ...words];
+    currentOffset = currentOffset + maxWordLimit;
+  } while (words.length >= maxWordLimit && currentOffset < 280);
+  
+  res.json({
+    success: true,
+    data: allWords
+  })
+}
 
 exports.fetchWordsFull = (req, res) => {
   fetch(

@@ -1,6 +1,8 @@
 # Unofficial Vocabulary.com API
 
 ## Update
+👉🏼 Added new endpoint /words-all
+
 👉🏼 Added new endpoint /words-full
 
 It is now live here https://vocabulary.vercel.app
@@ -21,5 +23,10 @@ https://vocabulary.vercel.app/words/goo
 ## get list of matching words with full data
 
 https://vocabulary.vercel.app/words-full/cat
+
+## get list of all matching words
+This will return maximum of 300 items at most
+
+https://vocabulary.vercel.app/words-all/goo
 
 
