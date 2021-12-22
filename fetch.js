@@ -23,8 +23,8 @@ exports.fetchSingleWord = (req, res) => {
     });
 };
 
-const fetchWordsBase = (text, startOffset = 0) => {
-  return fetch(`https://www.vocabulary.com/dictionary/autocomplete?search=${text}&startOffset=${startOffset}`)
+const fetchWordsBase = (text, pageOffset = 0) => {
+  return fetch(`https://www.vocabulary.com/dictionary/autocomplete?search=${text}&startOffset=${pageOffset}`)
     .then(res => res.text())
     .then(data => {
       const root = parse(data);
@@ -38,29 +38,14 @@ const fetchWordsBase = (text, startOffset = 0) => {
 };
 
 exports.fetchWords = async (req, res) => {
-  const data = await fetchWordsBase(req.params.text);
+  const { pageOffset } = req.query;
+  const { text } = req.params;
+  const data = await fetchWordsBase(text, pageOffset);
   res.json({
     success: true,
     data
   });
 };
-
-exports.fetchWordsAll = async (req, res) => {
-  const { text } = req.params;
-  let currentOffset = 0;
-  let allWords = [];
-  let words = [];
-  do {
-    words = await fetchWordsBase(text, currentOffset);
-    allWords = [...allWords, ...words];
-    currentOffset = currentOffset + maxWordLimit;
-  } while (words.length >= maxWordLimit && currentOffset < 280);
-  
-  res.json({
-    success: true,
-    data: allWords
-  })
-}
 
 exports.fetchWordsFull = (req, res) => {
   fetch(

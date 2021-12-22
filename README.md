@@ -1,7 +1,6 @@
 # Unofficial Vocabulary.com API
 
 ## Update
-👉🏼 Added new endpoint /words-all
 
 👉🏼 Added new endpoint /words-full
 
@@ -20,13 +19,11 @@ https://vocabulary.vercel.app/word/google
 
 https://vocabulary.vercel.app/words/goo
 
+supports query param pageOffset for pagination (ex: ?pageOffset=20)
+
 ## get list of matching words with full data
 
 https://vocabulary.vercel.app/words-full/cat
 
-## get list of all matching words
-This will return maximum of 300 items at most
-
-https://vocabulary.vercel.app/words-all/goo
 
 
