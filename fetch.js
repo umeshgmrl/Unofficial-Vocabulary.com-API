@@ -35,6 +35,7 @@ exports.fetchSingleWord = (req, res) => {
     `https://www.vocabulary.com/dictionary/definition.ajax?search=${req.params.word}&lang=en`
   )
     .then(data => {
+      return data;
       const root = parse(data);
       let rawText;
       try {
