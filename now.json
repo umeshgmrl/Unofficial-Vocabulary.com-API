@@ -18,6 +18,5 @@
             "src": "/.*",
             "dest": "/index.js"
         }
-    ],
-    "nodeVersion": "18.x"
+    ]
 }
