@@ -35,18 +35,18 @@ exports.fetchSingleWord = (req, res) => {
     `https://www.vocabulary.com/dictionary/definition.ajax?search=${req.params.word}&lang=en`
   )
     .then(data => {
-      return data;
-      const root = parse(data);
-      let rawText;
-      try {
-        rawText = root.querySelector(".short").rawText;
-      } catch (e) {
-        rawText = root.querySelector(".long").rawText;
-      }
-      res.json({
-        success: true,
-        data: rawText
-      });
+      res.json(data);
+      // const root = parse(data);
+      // let rawText;
+      // try {
+      //   rawText = root.querySelector(".short").rawText;
+      // } catch (e) {
+      //   rawText = root.querySelector(".long").rawText;
+      // }
+      // res.json({
+      //   success: true,
+      //   data: rawText
+      // });
     });
 };
 
